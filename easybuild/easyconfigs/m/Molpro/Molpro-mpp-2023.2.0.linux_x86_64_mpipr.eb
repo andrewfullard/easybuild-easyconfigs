@@ -12,8 +12,8 @@ toolchain = SYSTEM
 
 # no source URL available, requires registration to download
 sources = [{
-    'filename': '%(namelower)s-%(versionprefix)s%(version)s%(versionsuffix)s.sh',
-    'extract_cmd': 'tar xvf %s',
+    'filename': '%(namelower)s-%(versionprefix)s%(version)s%(versionsuffix)s.sh.gz',
+    'extract_cmd': 'gzip -d %s',
 }]
 
 precompiled_binaries = True
