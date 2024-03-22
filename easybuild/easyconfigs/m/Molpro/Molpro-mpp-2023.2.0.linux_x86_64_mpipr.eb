@@ -9,14 +9,9 @@ description = """Molpro is a complete system of ab initio programs for molecular
 toolchain = SYSTEM
 
 # no source URL available, requires registration to download
-sources = [{
-    'filename': '%(namelower)s-%(versionprefix)s%(version)s%(versionsuffix)s.sh.gz',
-    'extract_cmd': 'gzip -dk %s',
-}]
+sources = ['%(namelower)s-%(versionprefix)s%(version)s%(versionsuffix)s.sh']
 
 precompiled_binaries = True
-
-postinstallcmds = ['rm %(namelower)s-%(versionprefix)s%(version)s%(versionsuffix)s.sh']
 
 # license file - uncomment if a licence file is supplied by your site and
 # is valid for all users - the value of license_file may have to be changed
