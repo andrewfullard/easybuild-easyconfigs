@@ -1,0 +1,14 @@
+name = 'Mathematica'
+version = '13.3.1'
+
+homepage = 'https://www.wolfram.com/mathematica'
+description = """Mathematica is a computational software program used in many scientific, engineering, mathematical
+and computing fields."""
+
+toolchain = SYSTEM
+
+sources = ['Mathematica_%(version)s_BNDL_LINUX.sh']
+
+license_server = 'lm-02.i'
+
+moduleclass = 'math'
