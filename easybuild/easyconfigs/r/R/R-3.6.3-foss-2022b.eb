@@ -111,7 +111,8 @@ exts_list = [
     ('markdown', '1.1', {'checksums': ['8d8cd47472a37362e615dbb8865c3780d7b7db694d59050e19312f126e5efc1b']}),
     ('mlbench', '2.1-1', {'checksums': ['748141d56531a39dc4d37cf0a5165a40b653a04c507e916854053ed77119e0e6']}),
     ('NLP', '0.2-0', {'checksums': ['fc64c80124c4e53b20f92b60c68e2fd33ee189653d0ceea410c32dd66d9e7075']}),
-    ('mclust', '5.4.5', {'checksums': ['75f2963082669485953e4306ffa93db98335ee6afdc1318b95d605d56cb30a72']}),
+    #Fails with 2022b
+    #('mclust', '5.4.5', {'checksums': ['75f2963082669485953e4306ffa93db98335ee6afdc1318b95d605d56cb30a72']}),
     ('RANN', '2.6.1', {'checksums': ['b299c3dfb7be17aa41e66eff5674fddd2992fb6dd3b10bc59ffbf0c401697182']}),
     ('rmeta', '3.0', {'checksums': ['b9f9d405935cffcd7a5697ff13b033f9725de45f4dc7b059fd68a7536eb76b6e']}),
     ('segmented', '1.1-0', {'checksums': ['d081d0efaec708d717bf1248ba3df099876389c22796aad676655efb706e9d19']}),
@@ -208,7 +209,8 @@ exts_list = [
     ('rstudioapi', '0.11', {'checksums': ['13e07fb7e2eba8cf1d885db2721901d676d219a1042d7ef5d166125e4905306b']}),
     ('pkgload', '1.0.2', {'checksums': ['3186564e690fb05eabe76e1ac0bfd4312562c3ac8794b29f8850399515dcf27c']}),
     ('praise', '1.0.0', {'checksums': ['5c035e74fd05dfa59b03afe0d5f4c53fbf34144e175e90c53d09c6baedf5debd']}),
-    ('testthat', '2.3.2', {'checksums': ['1a268d8df07f7cd8d282d03bb96ac2d96a24a95c9aa52f4cca5138a09dd8e06c']}),
+    # C++ compiler errors
+    #('testthat', '2.3.2', {'checksums': ['1a268d8df07f7cd8d282d03bb96ac2d96a24a95c9aa52f4cca5138a09dd8e06c']}),
     ('isoband', '0.2.0', {'checksums': ['783197e50c0a58ada4f8b5980d52150264eaab4fd97e14faddf67a3c8e1e02e4']}),
     ('ggplot2', '3.3.0', {'checksums': ['320e3c76fe0d0397e29f4782bf85af3647518154b3900a39fd18cf024c554148']}),
     ('pROC', '1.16.1', {'checksums': ['35bd783811ba0138a1f8d6d7eecca7fc3c98f7aec62fe094ea577741fd0a7762']}),
@@ -852,3 +854,5 @@ exts_list = [
 ]
 
 moduleclass = 'lang'
+
+modloadmsg = 'R/3.6.3 is installed with a minimal set of packages. Please install packages you need locally'
