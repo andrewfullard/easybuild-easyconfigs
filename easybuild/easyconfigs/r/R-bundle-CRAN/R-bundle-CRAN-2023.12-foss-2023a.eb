@@ -62,7 +62,7 @@ exts_default_options = {
 # (some versions in this bundle may be newer than the ones provided by R)
 local_ext_version_check = "pkgver = packageVersion('%(ext_name)s'); if (pkgver != '%(ext_version)s') "
 local_stop_msg = "stop('%(ext_name)s %(ext_version)s not installed, found ', pkgver, ' instead')"
-exts_filter = ("R -q --no-save", "%s { %s }" % (local_ext_version_check, local_stop_msg))
+exts_filter = ("R_LIBS_USER=/dev/null R -q --no-save", "%s { %s }" % (local_ext_version_check, local_stop_msg))
 
 # the dbarts extension needs an additional compiler flag on Arm systems to prevent "incompatible types" errors
 # cfr. https://github.com/vdorie/dbarts/issues/66

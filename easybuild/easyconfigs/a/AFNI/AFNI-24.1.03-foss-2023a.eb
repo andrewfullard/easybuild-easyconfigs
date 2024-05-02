@@ -1,0 +1,48 @@
+# source: https://github.com/ComputeCanada/easybuild-easyconfigs/blob/computecanada-main/easybuild/easyconfigs/a/AFNI/AFNI-24.1.03-gccflexiblas-2023a.eb
+easyblock = 'CMakeMake'
+
+name = 'AFNI'
+version = "24.1.03"
+
+homepage = 'http://afni.nimh.nih.gov/'
+description = """AFNI is a set of C programs for processing, analyzing, and displaying functional MRI (FMRI) data -
+ a technique for mapping human brain activity."""
+
+toolchain = {'name': 'foss', 'version': '2023a'}
+toolchainopts = {'openmp': True, 'pic': True}
+
+source_urls = ['https://github.com/%(namelower)s/%(namelower)s/archive/']
+sources = ['AFNI_%(version)s.tar.gz']
+checksums = ['d03981f34cb6294aef9b82d722142e503867e015585ab3dbc23c795301a4b9ec']
+
+builddependencies = [
+    ('M4', '1.4.19'),
+    ('CMake', '3.26.3'),
+    ('motif', '2.3.8'),
+    ('freeglut', '3.4.0'),
+]
+
+dependencies = [
+    ('R', '4.3.2'),
+    ('Qt5', '5.15.10'),
+    ('GSL', '2.7'),
+    ('R-bundle-Bioconductor', '3.18', '-R-4.3.2'),
+    #('expat', '2.2.9'),  # provided from gentoo
+    ('Python', '3.11.3'),
+    ('SciPy-bundle', '2023.07'),
+]
+
+configopts  = ' -DSTANDARD_PYTHON_INSTALL=ON -DCOMP_PYTHON=ON -DPYTHON_EXECUTABLE=$EBROOTPYTHON/bin/python'
+configopts += ' -DGENERATE_PACKAGING_COMPONENTS=ON -DCOMP_SUMA=ON -DCOMP_GUI=ON '
+configopts += ' -DCOMP_RSTATS=ON -DCOMP_TCSH=ON  -DCOMP_COREBINARIES=ON '
+
+postinstallcmds = [ "cd %(builddir)s/afni-AFNI_%(version)s/src/python_scripts && cp -r scripts/* afnipy %(installdir)s/bin"]
+
+sanity_check_paths = {
+    'files': ['bin/%(namelower)s'],
+    'dirs': [],
+}
+
+sanity_check_commands = ["python -c 'import afnipy'"]
+
+moduleclass = 'bio'
