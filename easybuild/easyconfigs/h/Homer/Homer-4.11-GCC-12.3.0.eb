@@ -1,0 +1,41 @@
+easyblock = 'Binary'
+
+name = 'Homer'
+version = '4.11'
+
+homepage = 'http://homer.ucsd.edu/homer/'
+description = """HOMER (Hypergeometric Optimization of Motif EnRichment) is
+a suite of tools for Motif Discovery and next-gen sequencing analysis.  It
+is a collection of command line programs for UNIX-style operating systems
+written in Perl and C++.  HOMER was primarily written as a de novo motif
+discovery algorithm and is well suited for finding 8-20 bp motifs in large
+scale genomics data.  HOMER contains many useful tools for analyzing
+ChIP-Seq, GRO-Seq, RNA-Seq, DNase-Seq, Hi-C and numerous other types of
+functional genomics sequencing data sets."""
+
+toolchain = {'name': 'GCC', 'version': '12.3.0'}
+
+source_urls = ['http://%(namelower)s.ucsd.edu/%(namelower)s/']
+sources = ['configureHomer.pl']
+checksums = ['8bbbf7a25645b190815e1270f0817a59']
+
+dependencies = [
+    ('Perl', '5.36.1'),
+    ('UnZip', '6.0'),
+    ('Zip', '3.0'),
+]
+
+install_cmds = [
+    "cp configureHomer.pl %(installdir)s",
+    "chmod 755 %(installdir)s/configureHomer.pl",
+    "cd %(installdir)s && ./configureHomer.pl -install %(namelower)s",
+]
+
+sanity_check_paths = {
+    'files': ['bin/%(namelower)s'],
+    'dirs': [],
+}
+
+sanity_check_commands = ['%(namelower)s 2>&1']
+
+moduleclass = 'bio'
