@@ -1,0 +1,30 @@
+easyblock = 'MakeCp'
+
+name = 'CRYSTAL'
+version = '23'
+
+homepage = 'http://www.crystal.unito.it'
+description = """The CRYSTAL package performs ab initio calculations of the ground state energy, energy
+gradient, electronic wave function and properties of periodic systems. Hartree-Fock or Kohn-
+Sham Hamiltonians (that adopt an Exchange-Correlation potential following the postulates of
+Density-Functional Theory) can be used."""
+
+toolchain = {'name': 'intel', 'version': '2023a'}
+toolchainopts = {'usempi': True}
+
+sources = ['crystal23_v1_0_1_Linux-ifort21.4_PdistribOMP.tar.gz']
+checksums = ['a69994e2b1863e2bfee2dbc724a92a6d']
+
+prebuildopts = "cd build && "
+buildopts = "F90='mpif90' PLD='mpif90' F90COMMON='-stand=f08 -diag-disable=7373,6916 -diag-error=5198,6182,6893,6919,7374,7416,7423,8089,8586 -align -static-intel -cxxlib' all"
+
+parallel = 1
+
+files_to_copy = [(['bin/Linux-ifort_i64_omp/*/*'], 'bin')]
+
+sanity_check_paths = {
+    'files': ['bin/%(namelower)sOMP', 'bin/properties', 'bin/PcrystalOMP', 'bin/Pproperties'],
+    'dirs': [],
+}
+
+moduleclass = 'chem'
