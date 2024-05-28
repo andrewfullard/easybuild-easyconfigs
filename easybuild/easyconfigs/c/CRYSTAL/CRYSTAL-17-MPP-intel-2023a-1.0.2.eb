@@ -13,15 +13,15 @@ Density-Functional Theory) can be used."""
 toolchain = {'name': 'intel', 'version': '2023a'}
 toolchainopts = {'usempi': True}
 
-sources = ['MPPdistrib-Linux-ifort_oneapi21.4_openmpi4.1.1_i64-v1.0.2.tar.gz']
-checksums = ['877ccc18ba0dcbc90b017b3717edee92']
+sources = ['MPPdistrib-Linux-ifort_oneapi21.4_openmpi4.1.1_i64-v1.0.2.tar.gz', 'utils17.zip']
+checksums = ['877ccc18ba0dcbc90b017b3717edee92', 'c4ef7c325ddc9f96f5e7142bc68add00']
 
 prebuildopts = "cd build && "
 buildopts = 'all'
 
 parallel = 1
 
-files_to_copy = [(['bin/Linux-ifort_oneapi21.4_openmpi4.1.1_i64/*/*'], 'bin')]
+files_to_copy = [(['bin/Linux-ifort_oneapi21.4_openmpi4.1.1_i64/*/*'], 'bin'), (['cry*', 'run*'], 'utils17')]
 
 sanity_check_paths = {
     'files': ['bin/%(namelower)s', 'bin/properties', 'bin/Pcrystal', 'bin/Pproperties'],
