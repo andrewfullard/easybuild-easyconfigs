@@ -28,4 +28,13 @@ sanity_check_paths = {
     'dirs': [],
 }
 
+modextravars = {
+  'CRY17_ROOT': '%(installdir)s',
+  'CRY17_BIN': '%(installdir)s/bin',
+  'VERSION': 'v1.0.2',
+  'CRY17_SCRDIR': 'os.getenv("SCRATCH")',
+  'CRY17_EXEDIR': '%(installdir)s/bin',
+  'CRY17_UTILS': '%(installdir)s/utils17',
+  'CRY17_TEST': '%(installdir)s/examples',
+}
 moduleclass = 'chem'
