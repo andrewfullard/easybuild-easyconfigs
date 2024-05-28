@@ -1,0 +1,21 @@
+name = 'Nim'
+version = '2.0.4'
+
+homepage = 'https://nim-lang.org/'
+description = "Nim is a systems and applications programming language."
+
+toolchain = {'name': 'GCCcore', 'version': '12.3.0'}
+
+source_urls = ['https://%(namelower)s-lang.org/download/']
+sources = [SOURCELOWER_TAR_XZ]
+checksums = ['71526bd07439dc8e378fa1a6eb407eda1298f1f3d4df4476dca0e3ca3cbe3f09']
+
+builddependencies = [
+    ('binutils', '2.40'),
+]
+dependencies = [
+    ('libreadline', '8.2'),
+]
+
+
+moduleclass = 'lang'
