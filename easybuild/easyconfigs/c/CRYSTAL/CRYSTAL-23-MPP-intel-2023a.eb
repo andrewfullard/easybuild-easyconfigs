@@ -30,8 +30,8 @@ sanity_check_paths = {
 modextravars = {
   'CRY23_ROOT': '%(installdir)s',
   'CRY23_BIN': '%(installdir)s/bin',
-  'VERSION': 'v1.0.1',
-  'CRY23_SCRDIR': 'os.getenv("SCRATCH")',
+  'VERSION': '',
+  'CRY23_SCRDIR': '$SCRATCH',
   'CRY23_EXEDIR': '%(installdir)s/bin',
   'CRY23_UTILS': '%(installdir)s/utils23',
 }
