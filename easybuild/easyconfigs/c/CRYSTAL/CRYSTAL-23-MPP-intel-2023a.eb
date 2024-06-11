@@ -15,7 +15,7 @@ toolchainopts = {'usempi': True}
 sources = ['crystal23_v1_0_1_Linux-ifort21.4_MPPdistrib.tar.gz', 'utils23.tar.gz']
 checksums = ['bf69c7c22fdc3b4d81bfbc1e73bdf746', '4aa7765e6eefb7a1a8127f9f8a75f789']
 
-builddependencies = [
+dependencies = [
     ('OpenMPI', '4.1.5'),
 ]
 
