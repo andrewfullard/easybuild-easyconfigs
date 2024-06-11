@@ -12,18 +12,20 @@ Density-Functional Theory) can be used."""
 toolchain = {'name': 'intel', 'version': '2023a'}
 toolchainopts = {'usempi': True}
 
+
+
 sources = ['crystal23_v1_0_1_Linux-ifort21.4_MPPdistrib.tar.gz', 'utils23.tar.gz']
 checksums = ['bf69c7c22fdc3b4d81bfbc1e73bdf746', '4aa7765e6eefb7a1a8127f9f8a75f789']
 
 prebuildopts = "cd build && "
-buildopts = "F90='mpif90' PLD='mpif90' F90COMMON='-stand=f08 -diag-disable=7373,6916 -diag-error=5198,6182,6893,6919,7374,7416,7423,8089,8586 -align -static-intel -cxxlib' all"
+buildopts = "F90='mpif90' PLD='mpif90' F90COMMON='-stand=f08 -diag-disable=7373,6916 -diag-error=5198,6182,6893,6919,7374,7416,7423,8089,8586 -align -static-intel -cxxlib' MKL='$(MKLROOT)/lib/intel64' MPPLIB='-L$(MKL) $(MKL)/libmkl_scalapack_ilp64.a -Wl,--start-group $(MKL)/libmkl_intel_ilp64.a $(MKL)/libmkl_sequential.a $(MKL)/libmkl_core.a $(MKL)/libmkl_blacs_intelmpi_ilp64.a -Wl,--end-group -lpthread -lm -ldl' MPP"
 
 parallel = 1
 
 files_to_copy = [(['bin/Linux-ifort_i64/*/*'], 'bin'), (['utils23/*'], 'utils23')]
 
 sanity_check_paths = {
-    'files': ['bin/%(namelower)s', 'bin/properties', 'bin/Pcrystal', 'bin/Pproperties'],
+    'files': ['bin/MPPcrystal'],
     'dirs': [],
 }
 
